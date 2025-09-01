@@ -216,46 +216,79 @@ All colors MUST be HSL.
 
   .shape {
     position: absolute;
-    border-radius: 50%;
     animation: moveShape 20s linear infinite;
+    filter: blur(1px);
+    opacity: 0.6;
   }
 
   .shape-1 {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, hsl(174 39% 54% / 0.1), hsl(223 48% 28% / 0.1));
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, hsl(174 39% 54% / 0.15), hsl(223 48% 28% / 0.15));
     top: 10%;
     left: 10%;
-    animation-delay: 0s;
+    animation: moveShape 25s linear infinite, morph 12s ease-in-out infinite;
+    animation-delay: 0s, 2s;
   }
 
   .shape-2 {
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, hsl(142 76% 36% / 0.08), hsl(174 39% 54% / 0.08));
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, hsl(142 76% 36% / 0.12), hsl(174 39% 54% / 0.12));
     top: 60%;
-    right: 20%;
-    animation: moveShape 25s linear infinite reverse;
-    animation-delay: -5s;
+    right: 15%;
+    animation: moveShape 30s linear infinite reverse, morph 15s ease-in-out infinite;
+    animation-delay: -5s, 3s;
   }
 
   .shape-3 {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, hsl(38 92% 50% / 0.1), hsl(174 39% 54% / 0.1));
-    top: 80%;
-    left: 70%;
-    animation-delay: -10s;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, hsl(38 92% 50% / 0.18), hsl(174 39% 54% / 0.18));
+    top: 75%;
+    left: 65%;
+    animation: moveShape 20s linear infinite, morph 10s ease-in-out infinite;
+    animation-delay: -10s, 1s;
   }
 
   .shape-4 {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, hsl(223 48% 28% / 0.08), hsl(142 76% 36% / 0.08));
-    top: 30%;
-    left: 60%;
-    animation: moveShape 30s linear infinite;
-    animation-delay: -15s;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, hsl(223 48% 28% / 0.14), hsl(142 76% 36% / 0.14));
+    top: 20%;
+    left: 55%;
+    animation: moveShape 35s linear infinite, morph 18s ease-in-out infinite;
+    animation-delay: -15s, 4s;
+  }
+
+  .shape-5 {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, hsl(174 39% 54% / 0.16), hsl(38 92% 50% / 0.16));
+    top: 45%;
+    left: 25%;
+    animation: moveShape 28s linear infinite reverse, morph 14s ease-in-out infinite;
+    animation-delay: -20s, 5s;
+  }
+
+  .shape-6 {
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, hsl(142 76% 36% / 0.13), hsl(223 48% 28% / 0.13));
+    top: 85%;
+    right: 40%;
+    animation: moveShape 32s linear infinite, morph 16s ease-in-out infinite;
+    animation-delay: -25s, 6s;
+  }
+
+  .interactive-shape {
+    transition: all 0.3s ease;
+  }
+
+  .interactive-shape:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    filter: blur(0px);
   }
 
   .pulse-shape {
@@ -265,4 +298,45 @@ All colors MUST be HSL.
   .slide-shape {
     animation: slide 15s linear infinite;
   }
+
+  /* Animation Utilities */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-glow);
+  }
+
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+  }
+
+  .page-transition {
+    animation: page-enter 0.4s ease-out;
+  }
+
+  /* Stagger Animation Classes */
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
 }
